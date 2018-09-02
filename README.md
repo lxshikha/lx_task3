@@ -3,8 +3,8 @@
 This repository includes 3 file:-  
 2 Application related file:-  
 1. Makefile : To build application  
-2. lxapp.c : Application source file  
-1 Driver file:-  
+2. lxapp.c : Application source file 
+1 Driver file :-  
 1. /task3_driver_file/lis3dh_acc.h : To set the default threshold as 100 (as instructed under task3)  
 
 Instructions:  
@@ -22,13 +22,15 @@ Default threshold is 100
 To change the threshold to new value run echo command as given below:  
 echo -e "db,70\0" > /dev/lxaccess  
     where 70 is the new desired threshold  
+    
 Please note below command to set threshold will not work  
 echo "db,100" > /dev/lxaccell  
  Because the string passed using echo is not null terminated by default thus inside the write() function of driver kstrtoul() will fail with Invalid argument error.  
 
-4. If it is required to change the threshold using command like     echo "db,100" > /dev/lxaccell    
-- Below modification would be required in write() function of driver file "lx_acc_driver.c" to copy the user buffer to kernel space and to make it null terminated before fetching the new threshold value using kstrtoul() function.  
-- Modified write() function is given below:  
+4. If it is required to change the threshold using command like     echo "db,100" > /dev/lxaccell  
+Below modification would be required in write() function of driver file "lx_acc_driver.c" to copy the user buffer to kernel space and to make it null terminated before fetching the new threshold value using kstrtoul() function.  
+Modified write() function is given below:  
+
 
 static ssize_t lx_accell_device_write(struct file *file, const char __user *buffer,size_t length, loff_t *offset)  
 {  
@@ -49,6 +51,7 @@ static ssize_t lx_accell_device_write(struct file *file, const char __user *buff
     }
     return length;
 }
+
 
 
 
