@@ -31,7 +31,7 @@ echo "db,100" > /dev/lxaccell
 Below modification would be required in write() function of driver file "lx_acc_driver.c" to copy the user buffer to kernel space and to make it null terminated before fetching the new threshold value using kstrtoul() function.  
 Modified write() function is given below:  
 
-
+```
 static ssize_t lx_accell_device_write(struct file *file, const char __user *buffer,size_t length, loff_t *offset)  
 {  
     struct lx_accell_private_data *pdata = misc_get_drvdata(file);
@@ -51,6 +51,8 @@ static ssize_t lx_accell_device_write(struct file *file, const char __user *buff
     }
     return length;
 }
+```  
+
 
 
 
