@@ -1,6 +1,6 @@
 # lx_task3
 
-This repository includes 3 file:-
+This repository includes 3 file:-  
 2 Application related file:-  
     1. Makefile : To build application  
     2. lxapp.c : Application source file  
