@@ -1,11 +1,11 @@
 # lx_task3
 
-This repository includes 3 file:-  
+This repository includes 3 file:-
 2 Application related file:-  
-1. Makefile : To build application  
-2. lxapp.c : Application source file 
+    1. Makefile : To build application  
+    2. lxapp.c : Application source file  
 1 Driver file :-  
-1. /task3_driver_file/lis3dh_acc.h : To set the default threshold as 100 (as instructed under task3)  
+    1. /task3_driver_file/lis3dh_acc.h : To set the default threshold as 100 (as instructed under task3)  
 
 Instructions:  
 1. Driver build:  
